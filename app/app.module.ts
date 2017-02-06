@@ -5,10 +5,6 @@ import { AppComponent } from "./app.component";
 
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-import { ItemService } from "./item/item.service";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
-
 import { HomeComponent } from './home/home.component';
 import { DogsComponent } from './dogs/dogs.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
@@ -33,7 +29,6 @@ import { CatDetailsComponent } from './cat-details/cat-details.component';
         CatDetailsComponent
     ],
     providers: [
-        ItemService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

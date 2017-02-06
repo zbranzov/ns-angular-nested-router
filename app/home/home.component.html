@@ -1,0 +1,29 @@
+<ActionBar title="My App" class="action-bar">
+</ActionBar>
+
+<TabView tabsBackgroundColor="#31bcff" [(ngModel)]="selectedIndex">
+  <StackLayout *tabItem="{title: 'Dogs'}">
+    <Label text="Dogs TAB"></Label>
+
+    <Button text="Navigate to Dogs" 
+      [nsRouterLink]="[{ outlets: { dogoutlet: ['dogs'] } }]">
+    </Button>
+
+    <Button text="Navigate to Dog Details" 
+      [nsRouterLink]="['/', { outlets: { dogoutlet: ['dogdetails'] } }]">
+    </Button>
+
+    <Button text="Navigate to Dogs 2" 
+      (tap)=navigateToDogs()>
+    </Button>
+    <Button text="Navigate to Dog Details 2" 
+      (tap)=navigateToDogDetails()>
+    </Button>
+
+    <router-outlet name="dogoutlet"></router-outlet>  
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Cats'}">
+    <Label text="Cats TAB"></Label>
+    <router-outlet name="catoutlet"></router-outlet>  
+  </StackLayout>
+</TabView>
