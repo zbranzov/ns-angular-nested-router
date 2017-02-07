@@ -10,11 +10,9 @@ export class HomeComponent implements OnInit{
   selectedIndex = 0;
   
   constructor(private router: Router) {
-
   }
 
   ngOnInit() {
-    // setTimeout(() => { this.navigateToRoots() }, 0);
   }
 
   navigateToRoots() {
