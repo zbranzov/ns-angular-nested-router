@@ -10,13 +10,11 @@ import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 const routes: Routes = [
     // { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "", component: HomeComponent },
+    // { path: "", component: HomeComponent },
     { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet' },
     { path: 'dogdetails', component: DogDetailsComponent, outlet: 'dogoutlet' },
-    { path: "cats", children: [
-        { path: '', component: CatsComponent, outlet: 'catoutlet' },
-        { path: ':id', component: CatDetailsComponent, outlet: 'catoutlet' }
-    ]}
+    { path: 'cats', component: CatsComponent, outlet: 'catoutlet' },
+    { path: 'cats/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
 
 ];
 
