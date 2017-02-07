@@ -1,7 +1,12 @@
 <ActionBar title="Nested Navigation" class="action-bar">
 </ActionBar>
 
-<TabView tabsBackgroundColor="#31bcff" [(ngModel)]="selectedIndex">
+<TabView 
+  #tabView 
+  tabsBackgroundColor="#31bcff" 
+  [(ngModel)]="selectedIndex"
+  (selectedIndexChanged)="tabViewIndexChange(tabView.selectedIndex)">
+
   <StackLayout *tabItem="{title: 'Dogs'}">
     <my-dog-tab></my-dog-tab>
   </StackLayout>

@@ -15,13 +15,28 @@ export class HomeComponent implements OnInit{
   ngOnInit() {
   }
 
-  navigateToRoots() {
-    this.router.navigate([{ 
-      outlets: { 
-        dogoutlet: ['dogs'],
-        catoutlet: ['cats'] 
-      } 
-    }])
+  navigateToDogsRoot() {
+    this.router.navigate([
+      '/home',
+      { outlets: { dogoutlet: ['dogs'] } }
+    ]);
+  }
+  navigateToCatsRoot() {
+    this.router.navigate([
+      '/home',
+      { outlets: { catoutlet: ['cats'] } }
+    ]);
+  }
+
+  tabViewIndexChange(index: number) {
+    switch(index) {
+      case 0: 
+        this.navigateToDogsRoot();
+        break;
+      case 1:
+        this.navigateToCatsRoot();
+        break;    
+    }
   }
 
 }
