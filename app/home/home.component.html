@@ -24,6 +24,16 @@
   </StackLayout>
   <StackLayout *tabItem="{title: 'Cats'}">
     <Label text="Cats TAB"></Label>
+    
+    <Button text="Navigate to Cats" 
+      [nsRouterLink]="[{ outlets: { catoutlet: ['cats'] } }]">
+    </Button>
+
+    <Button text="Navigate to Dog Cats" 
+      [nsRouterLink]="['/', { outlets: { catoutlet: ['cats', 1] } }]">
+    </Button>
+    
     <router-outlet name="catoutlet"></router-outlet>  
+
   </StackLayout>
 </TabView>
