@@ -1,5 +1,7 @@
 <my-action-bar [title]="dog.name" showBack="true"></my-action-bar>
-<Label text="DOG DETAILS" class="btn btn-outline"></Label>
+<StackLayout>
+  <Label text="DOG DETAILS" class="btn btn-outline"></Label>
 
-<Label [text]="'Max Weight:' + dog.maxWeight + ' inches'" class="h2 m-10"></Label>
-<Label [text]="'Max Height:' + dog.maxHeight + ' pounds'" class="h2 m-10"></Label>
+  <Label [text]="'Max Weight:' + dog.maxWeight + ' inches'" class="h2 m-10"></Label>
+  <Label [text]="'Max Height:' + dog.maxHeight + ' pounds'" class="h2 m-10"></Label>
+</StackLayout>
