@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+import { DogService } from '../dog.service';
+
 @Component({
     selector: 'my-dog-details',
     templateUrl: './dog-details/dog-details.component.html'
 })
 export class DogDetailsComponent implements OnInit{
-  id: number;
+  dog: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private dogService: DogService) { }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.params["id"];
+    const id = +this.route.snapshot.params["id"];
+
+    this.dog = this.dogService.getDog(id); 
   }
 }

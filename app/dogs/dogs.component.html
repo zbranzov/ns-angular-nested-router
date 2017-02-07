@@ -1,4 +1,14 @@
+<my-action-bar title="Dogs"></my-action-bar>
 <StackLayout>
-  <Label text="Dogs-Component"></Label>
-  <router-outlet name="dogs"></router-outlet>  
+  <Label text="Dogs-Component" class="btn btn-outline"></Label>
+  <ListView [items]="dogs" class="list-group">
+      <template let-item="item" >
+          <Label 
+            (tap)="navigateToDetails(item.id)"
+            [text]="item.name"
+            class="list-group-item">
+          </Label>
+            <!--[nsRouterLink]="['/dogs', { outlets: { dogoutlet: ['dogs', item.id] } }]"-->
+      </template>
+  </ListView>
 </StackLayout>
