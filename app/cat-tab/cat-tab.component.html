@@ -1,18 +1,18 @@
-<Label text="Cats TAB"></Label>
+<Label text="Cats TAB" class="btn btn-primary"></Label>
 
-<Button text="Navigate to Cats" 
-  [nsRouterLink]="[{ outlets: { catoutlet: ['cats'] } }]">
+<Button text="Navigate to Cats"
+  [nsRouterLink]="['.', { outlets: { catoutlet: ['cats'] } }]">
 </Button>
 
-<Button text="Navigate to Cat Details" 
-  [nsRouterLink]="[{ outlets: { catoutlet: ['cats', '1'] } }]">
+<Button text="Navigate to Cat Details"
+  [nsRouterLink]="['.', { outlets: { catoutlet: ['cats', '1'] } }]">
 </Button>
 
-<Button text="Navigate to Cats with code" 
+<Button text="Navigate to Cats with code"
   (tap)=navigateToRoot()>
 </Button>
-<Button text="Navigate to Cats Details with code" 
+<Button text="Navigate to Cats Details with code"
   (tap)=navigateToDetails(2)>
 </Button>
 
-<router-outlet name="catoutlet"></router-outlet>  
+<router-outlet name="catoutlet"></router-outlet>

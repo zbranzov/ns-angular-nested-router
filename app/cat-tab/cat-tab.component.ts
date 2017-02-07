@@ -8,27 +8,22 @@ import { Router } from '@angular/router';
 export class CatTabComponent implements OnInit{
 
   constructor(private router: Router) {
-
   }
 
   ngOnInit() {
-    // Navigate to the root of the tab
-    setTimeout(() => { this.navigateToRoot() }, 0);
   }
 
   navigateToRoot() {
-    this.router.navigate([{ 
-      outlets: {
-        catoutlet: ['cats']
-      }
-    }]);
+    this.router.navigate([
+      '/home',
+      { outlets: { catoutlet: ['cats'] } }
+    ]);
   }
   
   navigateToDetails(id) {
-    this.router.navigate([{ 
-      outlets: { 
-        catoutlet: ['cats', id] 
-      } 
-    }]);
+    this.router.navigate([
+      '/home',
+      { outlets: { catoutlet: ['cats', id] } }
+    ]);
   }
 }

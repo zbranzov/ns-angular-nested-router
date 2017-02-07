@@ -1,20 +1,4 @@
-<!--<StackLayout *tabItem="{title: 'Dogs'}">-->
-  <Label text="Dogs TAB"></Label>
+<!--<my-action-bar title="Dogs"></my-action-bar>-->
+<Label text="Dogs TAB" class="btn btn-primary"></Label>
 
-  <Button text="Navigate to Dogs" 
-    [nsRouterLink]="[{ outlets: { dogoutlet: ['dogs'] } }]">
-  </Button>
-
-  <Button text="Navigate to Dog Details" 
-    [nsRouterLink]="[{ outlets: { dogoutlet: ['dogs', '1'] } }]">
-  </Button>
-
-  <Button text="Navigate to Dogs with code" 
-    (tap)=navigateToRoot()>
-  </Button>
-  <Button text="Navigate to Dog Details with code" 
-    (tap)=navigateToDetails(2)>
-  </Button>
-
-  <router-outlet name="dogoutlet"></router-outlet>  
-<!--</StackLayout>-->
+<router-outlet name="dogoutlet"></router-outlet>
