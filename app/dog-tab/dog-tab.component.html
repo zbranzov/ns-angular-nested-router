@@ -1,0 +1,20 @@
+<!--<StackLayout *tabItem="{title: 'Dogs'}">-->
+  <Label text="Dogs TAB"></Label>
+
+  <Button text="Navigate to Dogs" 
+    [nsRouterLink]="[{ outlets: { dogoutlet: ['dogs'] } }]">
+  </Button>
+
+  <Button text="Navigate to Dog Details" 
+    [nsRouterLink]="[{ outlets: { dogoutlet: ['dogdetails', '1'] } }]">
+  </Button>
+
+  <Button text="Navigate to Dogs with code" 
+    (tap)=navigateToRoot()>
+  </Button>
+  <Button text="Navigate to Dog Details with code" 
+    (tap)=navigateToDetails(2)>
+  </Button>
+
+  <router-outlet name="dogoutlet"></router-outlet>  
+<!--</StackLayout>-->
