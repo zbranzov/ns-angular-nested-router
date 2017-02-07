@@ -9,13 +9,10 @@ import { CatsComponent } from './cats/cats.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 const routes: Routes = [
-    // { path: "", redirectTo: "/items", pathMatch: "full" },
-    // { path: "", component: HomeComponent },
     { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet' },
-    { path: 'dogdetails', component: DogDetailsComponent, outlet: 'dogoutlet' },
+    { path: 'dogdetails/:id', component: DogDetailsComponent, outlet: 'dogoutlet' },
     { path: 'cats', component: CatsComponent, outlet: 'catoutlet' },
-    { path: 'cats/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
-
+    { path: 'catdetails/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
 ];
 
 @NgModule({
