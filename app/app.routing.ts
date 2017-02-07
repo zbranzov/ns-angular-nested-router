@@ -9,14 +9,19 @@ import { CatsComponent } from './cats/cats.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 const routes: Routes = [
-    { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet' },
-    { path: 'dogs/:id', component: DogDetailsComponent, outlet: 'dogoutlet' },
-    { path: 'cats', component: CatsComponent, outlet: 'catoutlet' },
-    { path: 'cats/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
+  { path: "", redirectTo: "/home/(dogoutlet:dogs//catoutlet:cats)", pathMatch: "full" },
+  {
+    path: "home", component: HomeComponent,  children: [
+      { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet' },
+      { path: 'dogs/:id', component: DogDetailsComponent, outlet: 'dogoutlet' },
+      { path: 'cats', component: CatsComponent, outlet: 'catoutlet' },
+      { path: 'cats/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [NativeScriptRouterModule.forRoot(routes)],
-    exports: [NativeScriptRouterModule]
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule]
 })
 export class AppRoutingModule { }
