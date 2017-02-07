@@ -14,15 +14,16 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
-
+    // setTimeout(() => { this.navigateToRoots() }, 0);
   }
 
-  navigateToDogs() {
-    debugger;
-    this.router.navigate([{ outlets: { dogoutlet: ['dogs'] } }]);
+  navigateToRoots() {
+    this.router.navigate([{ 
+      outlets: { 
+        dogoutlet: ['dogs'],
+        catoutlet: ['cats'] 
+      } 
+    }])
   }
-  navigateToDogDetails() {
-    debugger;
-    this.router.navigate(['/', { outlets: { dogoutlet: ['dogdetails'] } }]);
-  }
+
 }
