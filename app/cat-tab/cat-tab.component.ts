@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'my-cat-tab',
-    templateUrl: './cat-tab/cat-tab.component.html',
-   // styleUrls: ['./cat-tab/cat-tab.component.css']
+    templateUrl: './cat-tab/cat-tab.component.html'
 })
 export class CatTabComponent implements OnInit{
 
@@ -28,7 +27,7 @@ export class CatTabComponent implements OnInit{
   navigateToDetails(id) {
     this.router.navigate([{ 
       outlets: { 
-        catoutlet: ['catdetails', id] 
+        catoutlet: ['cats', id] 
       } 
     }]);
   }

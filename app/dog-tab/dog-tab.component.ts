@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'my-dog-tab',
-    templateUrl: './dog-tab/dog-tab.component.html',
-   // styleUrls: ['./dog-tab/dog-tab.component.css']
+    templateUrl: './dog-tab/dog-tab.component.html'
 })
 export class DogTabComponent implements OnInit{
 
@@ -27,7 +26,7 @@ export class DogTabComponent implements OnInit{
   navigateToDetails(id) {
     this.router.navigate([{
       outlets: {
-        dogoutlet: ['dogdetails', id]
+        dogoutlet: ['dogs', id]
       }
     }]);
   }
