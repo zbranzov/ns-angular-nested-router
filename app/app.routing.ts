@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { DogsComponent } from './dogs/dogs.component';
@@ -9,15 +9,13 @@ import { CatsComponent } from './cats/cats.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home/(dogoutlet:dogs//catoutlet:cats)", pathMatch: "full" },
-  {
-    path: "home", component: HomeComponent,  children: [
-      { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet' },
-      { path: 'dogs/:id', component: DogDetailsComponent, outlet: 'dogoutlet' },
-      { path: 'cats', component: CatsComponent, outlet: 'catoutlet' },
-      { path: 'cats/:id', component: CatDetailsComponent, outlet: 'catoutlet' }
-    ]
-  }
+  { path: '', redirectTo: '/home/(catoutlet:cats//dogoutlet:dogs)', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, children: [
+    { path: 'cats', component: CatsComponent, outlet: 'catoutlet'},
+    { path: 'cats/:name', component: CatDetailsComponent, outlet: 'catoutlet'},
+    { path: 'dogs', component: DogsComponent, outlet: 'dogoutlet'},
+    { path: 'dogs/:id', component: DogDetailsComponent, outlet: 'dogoutlet'}
+  ]}
 ];
 
 @NgModule({

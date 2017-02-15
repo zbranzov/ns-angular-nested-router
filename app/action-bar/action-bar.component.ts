@@ -7,7 +7,7 @@ import { RouterExtensions } from 'nativescript-angular/router/router-extensions'
 })
 export class ActionBarComponent {
 
-  private _title: string = "";
+  private _title: string = '';
 
   @Input()
   public get title(): string {

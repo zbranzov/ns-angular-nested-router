@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
 
@@ -6,13 +6,10 @@ import { Router } from '@angular/router';
     selector: 'my-home',
     templateUrl: './home/home.component.html'
 })
-export class HomeComponent implements OnInit{
-  selectedIndex = 0;
+export class HomeComponent {
+  public selectedIndex: number = 0;
   
   constructor(private router: Router) {
-  }
-
-  ngOnInit() {
   }
 
   navigateToDogsRoot() {
@@ -38,5 +35,4 @@ export class HomeComponent implements OnInit{
         break;    
     }
   }
-
 }
