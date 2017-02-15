@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular';
 
 import { DogService } from '../dog.service';
 
@@ -8,13 +9,22 @@ import { DogService } from '../dog.service';
     templateUrl: './dog-details/dog-details.component.html'
 })
 export class DogDetailsComponent implements OnInit{
-  dog: any;
+  public dog: any;
 
-  constructor(private route: ActivatedRoute, private dogService: DogService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dogService: DogService) {
+  }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params["id"];
-
+    const id = +this.route.snapshot.params['id'];
     this.dog = this.dogService.getDog(id); 
+  }
+
+  goBack() {
+    this.router.navigate([
+      '/home', { outlets: { dogoutlet: ['dogs'] } }
+    ])
   }
 }

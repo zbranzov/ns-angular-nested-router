@@ -1,7 +1,13 @@
-<my-action-bar [title]="dog.name" showBack="true"></my-action-bar>
 <StackLayout>
-  <Label text="DOG DETAILS" class="btn btn-outline"></Label>
+  <Label [text]="dog.name" class="h1 text-center"></Label>
+  <Label text="Who is the good doggie?" class="h2 font-italic text-center"></Label>
 
-  <Label [text]="'Max Weight:' + dog.maxWeight + ' inches'" class="h2 m-10"></Label>
-  <Label [text]="'Max Height:' + dog.maxHeight + ' pounds'" class="h2 m-10"></Label>
+  <Label [text]="'Max Weight:' + dog.maxWeight + ' inches'" class="h3 m-10"></Label>
+  <Label [text]="'Max Height:' + dog.maxHeight + ' pounds'" class="h3 m-10"></Label>
+
+  <Button 
+    text="Go Back"
+    (tap)="goBack()"
+    class="btn btn-primary">
+  </Button>
 </StackLayout>

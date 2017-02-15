@@ -1,3 +1,16 @@
-<my-action-bar title="Cat Details" showBack="true"></my-action-bar>
-<Label text="CAT DETAILS" class="btn btn-outline"></Label>
-<Label [text]="'ID:' + id" textWrap="true"></Label>
+<StackLayout>
+  <Label 
+    [text]="'Hello ' + name"
+    class="h1 text-center">
+  </Label>
+  <Label
+    text="Did you knock the plants off the window sill?"
+    class="h2 font-italic text-center" textWrap="true">
+  </Label>
+
+  <Button 
+    text="Go Back"
+    [nsRouterLink]="['/home', { outlets: { catoutlet: ['cats'] } } ]"
+    class="btn btn-primary">
+  </Button>
+</StackLayout>
