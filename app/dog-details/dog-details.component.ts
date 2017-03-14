@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RouterExtensions } from 'nativescript-angular';
+import 'rxjs/add/operator/switchMap';
 
 import { DogService } from '../dog.service';
 
@@ -9,6 +9,7 @@ import { DogService } from '../dog.service';
     templateUrl: './dog-details/dog-details.component.html'
 })
 export class DogDetailsComponent implements OnInit{
+  private dogId: number;
   public dog: any;
 
   constructor(
@@ -18,13 +19,38 @@ export class DogDetailsComponent implements OnInit{
   }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.dog = this.dogService.getDog(id); 
+    // This approach allows us to navigate from dog-details to dog-details with a new dogId
+    // forEach will be triggered every time new id is provided
+    this.route.params
+      .forEach(params => {
+        this.dogId = +params['id'];
+        this.dog = this.dogService.getDog(this.dogId);
+      });
+
+    // This approach picks the id only once.
+    // When you navigate from dog-details to dog-details with a newId, that won't be recognised
+    // this.dogId = +this.route.snapshot.params['id'];
+    // this.dog = this.dogService.getDog(this.dogId);
   }
 
-  goBack() {
+  public goBack() {
     this.router.navigate([
       '/home', { outlets: { dogoutlet: ['dogs'] } }
+    ])
+  }
+
+  public goToPreviousDog() {
+    const newDogId = (this.dogId + 9) % 10;
+
+    this.router.navigate([
+      '/home', { outlets: { dogoutlet: ['dogs', newDogId] } }
+    ])
+  }
+
+  public goToNextDog() {
+    const newDogId = (this.dogId + 1) % 10;
+    this.router.navigate([
+      '/home', { outlets: { dogoutlet: ['dogs', newDogId] } }
     ])
   }
 }
