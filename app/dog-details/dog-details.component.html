@@ -5,7 +5,25 @@
   <Label [text]="'Max Weight:' + dog.maxWeight + ' inches'" class="h3 m-10"></Label>
   <Label [text]="'Max Height:' + dog.maxHeight + ' pounds'" class="h3 m-10"></Label>
 
-  <Button 
+  <DockLayout orientation="horizontal">
+    <Button
+      dock="left"
+      text="Previous dog"
+      (tap)="goToPreviousDog()"
+      class="btn btn-primary"
+      width="40%">
+    </Button>
+
+    <Button
+      dock="right"
+      text="Next dog"
+      (tap)="goToNextDog()"
+      class="btn btn-primary"
+      width="40%">
+    </Button> 
+  </DockLayout>
+
+  <Button
     text="Go Back"
     (tap)="goBack()"
     class="btn btn-primary">
