@@ -26,28 +26,27 @@ export class DogsComponent {
     this.route.queryParams.subscribe(
       params => returnTo = params['returnTo']);
     if (returnTo) {
-      this.lastIndex = returnTo;
+      this.scrollOffset = returnTo;
     }
 
 
-    // if(this.scrollOffset){
+    if(this.scrollOffset){
 
-    //   setTimeout(() => {
-    //     this._listRef.nativeElement.scrollWithAmount(this.scrollOffset, false);
+      setTimeout(() => {
+        this._listRef.nativeElement.scrollWithAmount(this.scrollOffset, false);
 
-    //     setTimeout(() => {
-    //       console.log(`post offset: ${this._listRef.nativeElement.getScrollOffset()}`);
-    //     },10);
-    //   },10);
-    // }
+        setTimeout(() => {
+          console.log(`post offset: ${this._listRef.nativeElement.getScrollOffset()}`);
+        },10);
+      },10);
+    }
   }
 
-  navigateToDetails(args: ListViewEventData) {
+  navigateToDetails(id) {
     this.scrollOffset = this._listRef.nativeElement.getScrollOffset();
-    this.lastIndex = args.index;
     this.router.navigate([
-      '/home', { outlets: { dogoutlet: ['dogs', args.index] } }
-    ], { queryParams: { returnTo: this.lastIndex } })
+      '/home', { outlets: { dogoutlet: ['dogs', id] } }
+    ], { queryParams: { returnTo: this.scrollOffset } })
   }
 
   private scrollFunc(listView: RadListView, that) {

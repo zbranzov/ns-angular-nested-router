@@ -1,10 +1,11 @@
 <StackLayout>
-  <RadListView #list [items]="dogs" class="list-group" height="100%" (dataPopulated)="onDataPopulated($event)" (itemTap)="navigateToDetails($event)">
+  <RadListView #list [items]="dogs" class="list-group" height="100%">
     <ng-template let-item="item" >
       <Label 
+        (tap)="navigateToDetails(item.id)"
         [text]="item.name"
         class="list-group-item">
       </Label>
-    </ng-template>
+    </ng-template >
   </RadListView>
 </StackLayout>
