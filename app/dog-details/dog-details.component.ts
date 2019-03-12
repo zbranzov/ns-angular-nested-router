@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { DogService } from '../dog.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
     selector: 'my-dog-details',
@@ -11,6 +12,7 @@ import { DogService } from '../dog.service';
 export class DogDetailsComponent implements OnInit{
   private dogId: number;
   public dog: any;
+  public returnTo: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +23,9 @@ export class DogDetailsComponent implements OnInit{
   ngOnInit() {
     // This approach allows us to navigate from dog-details to dog-details with a new dogId
     // forEach will be triggered every time new id is provided
+    this.route.queryParams.subscribe(
+      params => this.returnTo = params['returnTo']);
+    // this.returnTo = this.route.queryParamMap['returnTo'];
     this.route.params
       .forEach(params => {
         this.dogId = +params['id'];
@@ -36,7 +41,7 @@ export class DogDetailsComponent implements OnInit{
   public goBack() {
     this.router.navigate([
       '/home', { outlets: { dogoutlet: ['dogs'] } }
-    ])
+    ],{queryParams:{returnTo: this.returnTo}})
   }
 
   public goToPreviousDog() {

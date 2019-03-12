@@ -13,6 +13,9 @@ export class DogService {
         { id: 8, name: "Boxer", maxWeight: 80, maxHeight: 25 },
         { id: 9, name: "French Bulldog", maxWeight: 28, maxHeight: 13 },
         { id: 10, name: "Rottweiler", maxWeight: 135, maxHeight: 27 },
+        { id: 11, name: "Husky", maxWeight: 80, maxHeight: 25 },
+        { id: 12, name: "PitBull", maxWeight: 28, maxHeight: 13 },
+        { id: 13, name: "Doberman", maxWeight: 135, maxHeight: 27 },
     );
 
     getDogs(): any[] {

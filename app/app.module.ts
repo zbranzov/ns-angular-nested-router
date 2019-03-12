@@ -14,6 +14,7 @@ import { DogDetailsComponent } from './dog-details/dog-details.component';
 import { CatTabComponent } from './cat-tab/cat-tab.component';
 import { CatsComponent } from './cats/cats.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 import { DogService } from './dog.service';
 
@@ -24,7 +25,8 @@ import { DogService } from './dog.service';
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptFormsModule
+        NativeScriptFormsModule,
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,
